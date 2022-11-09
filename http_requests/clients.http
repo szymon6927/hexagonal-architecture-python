@@ -1,0 +1,41 @@
+### Create a client
+
+POST {{ host }}/clients
+Content-Type: application/json
+Accept: application/json
+
+{
+  "first_name": "John",
+  "last_name": "Done",
+  "email": "test@test.com"
+}
+
+### Change client's data
+
+PUT {{ host }}/clients/636a7606449a56551fffc596
+Content-Type: application/json
+Accept: application/json
+
+{
+  "first_name": "John",
+  "last_name": "Done",
+  "email": "test33@test.com"
+}
+
+### Archive client
+
+DELETE {{ host }}/clients/636a7606449a56551fffc596
+Content-Type: application/json
+Accept: application/json
+
+{}
+
+### Refresh auth token
+
+POST {{ host }}/clients/exports
+Content-Type: application/json
+Accept: application/json
+
+{
+  "format": "CSV"
+}

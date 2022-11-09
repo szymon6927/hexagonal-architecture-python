@@ -1,0 +1,2 @@
+class GymClassNotFound(Exception):
+    pass

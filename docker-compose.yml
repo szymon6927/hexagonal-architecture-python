@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - ./data/mongo:/data/db
+    ports:
+      - "27017-27019:27017-27019"
+
+  awslocalstack:
+    image: localstack/localstack
+    ports:
+      - "4566:4566"
+      - "4571:4571"
+      - "8080:8080"
+    environment:
+      - SERVICES=s3
+      - PORT_WEB_UI=8080
+      - START_WEB=1
+      - DEBUG=1
+      - DEFAULT_REGION=eu-west-1
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./.docker/localstack/:/docker-entrypoint-initaws.d/"

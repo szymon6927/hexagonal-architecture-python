@@ -1,0 +1,41 @@
+POST {{host}}/classes
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Pilates",
+  "day": "Monday",
+  "time": "10:30-11:30",
+  "coach": "Simon W.",
+  "description": "Try pilates in our gym"
+}
+###
+
+GET {{host}}/classes
+Content-Type: application/json
+Accept: application/json
+
+###
+
+GET {{host}}/classes/636a69f6a119088676764d91
+Content-Type: application/json
+Accept: application/json
+
+
+###
+PUT {{host}}/classes/636a69f6a119088676764d91
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Morning start-up",
+  "day": "Monday",
+  "time": "9:00-10:00",
+  "coach": "Szymon M.",
+  "description": ""
+}
+
+###
+DELETE {{host}}/classes/636a69f6a119088676764d91
+Content-Type: application/json
+Accept: application/json

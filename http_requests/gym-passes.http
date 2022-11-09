@@ -1,0 +1,30 @@
+POST {{host}}/gym-passes
+Content-Type: application/json
+Accept: application/json
+
+{
+  "owner": "12345678",
+  "validity": "ONE_MONTH"
+}
+
+###
+POST {{host}}/gym-passes/636b5b3ff573dfa78f0d5a5b/pauses
+Content-Type: application/json
+Accept: application/json
+
+{
+"days": 7
+}
+###
+
+PUT {{host}}/gym-passes/636b5b3ff573dfa78f0d5a5b/renewal
+Content-Type: application/json
+Accept: application/json
+
+
+###
+GET {{host}}/gym-passes/636b5b3ff573dfa78f0d5a5b/verification
+Content-Type: application/json
+Accept: application/json
+
+###
