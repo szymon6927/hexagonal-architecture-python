@@ -2,8 +2,9 @@
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
-Project created as a part of blog post ...
-TODO: add description here 
+This project was created as an example for my blog post https://blog.szymonmiks.pl/p/hexagonal-architecture-in-python/
+
+This is for educational purposes only and the code is not production-ready.
 
 ## Table of contents
 
@@ -15,7 +16,7 @@ TODO: add description here
 ## Stack
 
 - Python 3.9
-- Starlette
+- FastAPI
 - MongoDB
 
 ## Prerequisites
@@ -43,6 +44,11 @@ $ poetry install
 $ poetry run pre-commit install
 ```
 
+## Running app locally
+
+1. In the main project's directory create a new `.env` file and copy all variables from `example.env` there.
+2. Run `docker-compose up -d`
+3. Go to `src/app.py` and run the app
 
 ## Tests
 
