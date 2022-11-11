@@ -18,8 +18,8 @@ class ClientId:
     def of(cls, id: str) -> "ClientId":
         try:
             return cls(ObjectId(id))
-        except InvalidId:
-            raise ClientError.invalid_id()
+        except InvalidId as error:
+            raise ClientError.invalid_id() from error
 
     def __str__(self) -> str:
         return str(self.value)

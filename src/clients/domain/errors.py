@@ -1,4 +1,4 @@
-from src.building_blocks.errors import DomainError
+from src.building_blocks.errors import DomainError, ResourceNotFound
 
 
 class ClientError(DomainError):
@@ -7,7 +7,7 @@ class ClientError(DomainError):
         return cls("Provided id is not correct according to the ObjectId standard!")
 
 
-class ClientNotFound(DomainError):
+class ClientNotFound(ResourceNotFound):
     pass
 
 

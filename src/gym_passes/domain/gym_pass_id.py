@@ -18,8 +18,8 @@ class GymPassId:
     def of(cls, id: str) -> "GymPassId":
         try:
             return cls(ObjectId(id))
-        except InvalidId:
-            raise GymPassError.invalid_id()
+        except InvalidId as error:
+            raise GymPassError.invalid_id() from error
 
     def __str__(self) -> str:
         return str(self.value)

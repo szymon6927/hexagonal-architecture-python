@@ -34,6 +34,7 @@ class ClientService:
 
     def create(self, input_dto: CreateClientDTO) -> ClientDTO:
         client = Client.create(input_dto.first_name, input_dto.last_name, input_dto.email)
+
         self._client_repo.save(client)
 
         snapshot = client.to_snapshot()
@@ -54,7 +55,9 @@ class ClientService:
     def archive(self, input_dto: ArchiveClientDTO) -> None:
         client = self._client_repo.get(ClientId.of(input_dto.client_id))
         client.archive()
+
         self._client_repo.save(client)
+
         self._gym_pass_facade.disable_for(str(client.id.value))
 
     def export(self, input_dto: ExportClientsDTO) -> None:

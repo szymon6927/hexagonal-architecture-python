@@ -1,4 +1,4 @@
-from src.building_blocks.errors import DomainError
+from src.building_blocks.errors import DomainError, ResourceNotFound
 
 
 class GymPassError(DomainError):
@@ -11,5 +11,5 @@ class PausingError(DomainError):
     pass
 
 
-class GymPassNotFound(DomainError):
+class GymPassNotFound(ResourceNotFound):
     pass

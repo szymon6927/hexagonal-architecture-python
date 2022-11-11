@@ -15,7 +15,7 @@ This is for educational purposes only and the code is not production-ready.
 
 ## Stack
 
-- Python 3.9
+- Python 3.10
 - FastAPI
 - MongoDB
 

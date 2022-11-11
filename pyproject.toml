@@ -6,7 +6,7 @@ requires = ["poetry-core"]
 
 [tool.black]
 line-length = 120
-target-version = ["py39"]
+target-version = ["py310"]
 
 [tool.coverage.report]
 exclude_lines = [
@@ -49,7 +49,7 @@ warn_unused_configs = true
 authors = ["Szymon Miks <miks.szymon@gmail.com>"]
 description = ""
 name = "hexagonal-architecture-python"
-packages = [{include = "hexagonal_architecture_python"}]
+packages = [{include = "src"}]
 readme = "README.md"
 version = "0.1.0"
 
@@ -65,8 +65,8 @@ mypy-boto3-sns = "^1.24.68"
 pymongo = "^4.2.0"
 python = "^3.10"
 python-dateutil = "^2.8.2"
-requests = "^2.28.1"
 python-dotenv = "^0.21.0"
+requests = "^2.28.1"
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.10.0"
@@ -85,15 +85,19 @@ toml-sort = "^0.20.1"
 good-names = "id,i,j,k"
 
 [tool.pylint.DESIGN]
-max-args = 5
+max-args = 7
 max-attributes = 8
 min-public-methods = 1
 
 [tool.pylint.FORMAT]
 max-line-length = 120
 
+[tool.pylint.MASTER]
+extension-pkg-whitelist = "pydantic"
+
 [tool.pylint."MESSAGES CONTROL"]
 disable = "missing-docstring, line-too-long, logging-fstring-interpolation, duplicate-code"
+extension-pkg-whitelist = "pydantic"
 
 [tool.pylint.MISCELLANEOUS]
 notes = "XXX"

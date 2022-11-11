@@ -13,8 +13,8 @@ class InMemoryClientRepository(IClientRepository):
     def get(self, client_id: ClientId) -> Client:
         try:
             return copy.deepcopy(self._clients[client_id])
-        except KeyError:
-            raise ClientNotFound(f"Client with id={client_id} was not found!")
+        except KeyError as error:
+            raise ClientNotFound(f"Client with id={client_id} was not found!") from error
 
     def get_all(self) -> list[Client]:
         clients = []

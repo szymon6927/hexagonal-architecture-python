@@ -10,5 +10,5 @@ class EmailAddress:
     def __post_init__(self) -> None:
         try:
             validate_email(self.value)
-        except EmailNotValidError:
-            raise ValueError(f"{self.value} is not a correct e-mail address!")
+        except EmailNotValidError as error:
+            raise ValueError(f"{self.value} is not a correct e-mail address!") from error

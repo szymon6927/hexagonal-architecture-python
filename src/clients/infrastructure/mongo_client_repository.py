@@ -17,7 +17,7 @@ class MongoDBClientRepository(IClientRepository):
 
     def _to_entity(self, document: MongoDocument) -> Client:
         return Client(
-            client_id=ClientId.of(document["_id"]),
+            client_id=ClientId.of(str(document["_id"])),
             first_name=document["first_name"],
             last_name=document["last_name"],
             email=EmailAddress(document["email"]),
@@ -26,7 +26,11 @@ class MongoDBClientRepository(IClientRepository):
 
     def get_all(self) -> list[Client]:
         clients = []
-        documents = self._collection.find({})
+
+        try:
+            documents = self._collection.find({})
+        except PyMongoError as error:
+            raise RepositoryError.get_operation_failed() from error
 
         for document in documents:
             clients.append(self._to_entity(document))
