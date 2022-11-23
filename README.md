@@ -4,14 +4,34 @@
 
 This project was created as an example for my blog post https://blog.szymonmiks.pl/p/hexagonal-architecture-in-python/
 
+I encourage you to read the article first before checking the code.
+
 This is for educational purposes only and the code is not production-ready.
 
-## Table of contents
+## Intro
 
-* [Stack](#stack)
-* [Prerequisites](#prerequisites)
-* [Setup](#setup)
-* [Tests](#tests)
+I created a project that uses FastAPI and follows the hexagonal architecture rules.
+
+This project is a simplified gym management software. We have such functionalities like:
+- Gym Clients
+  - create a gym client
+  - change client's personal data
+  - archive a client
+  - export all clients as a CSV or JSON file to S3 or Dropbox storage
+- Gym Passes
+  - create a gym pass
+  - pause a gym pass
+  - renew a gym pass
+  - check if gym pass is active
+- Gym Classes (CRUD)
+  - create a gym class
+  - delete a gym class
+  - modify a gym class
+  - list all gym classes sorted by time and day of the week
+
+## Project structure
+
+![project-structure](docs/project-strucutre-all.png)
 
 ## Stack
 
